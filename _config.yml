@@ -22,7 +22,7 @@ url: 'https://academic.acm.illinois.edu' # the base hostname & protocol for your
 exclude: ["Gemfile", "Gemfile.lock", "LICENSE"]
 
 # Theme settings
-remote_theme: acm-uiuc/sig-website-jekyll-theme@v0.11.3
+remote_theme: acm-uiuc/sig-website-jekyll-theme@latest
 color_scheme: light
 search_enabled: true
 heading_anchors: true
