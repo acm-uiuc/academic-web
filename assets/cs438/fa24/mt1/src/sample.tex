@@ -74,7 +74,7 @@
         \item \alert{Data Loss}: some applications (video/audio) can tolerate it, others (file transfer/ssh/etc.) can't
         \begin{itemize}
             \item \pause \alert{Packet Error Rate} = $\frac{N}{P}$ for $N$ unrecoverable bit errors for $P$ packets. Packets can be recovered through error-correcting coding, depending on schema. 
-            \item \pause Example: if bit error rate is $10^{-6}$, packet 10kb, no ECC, then PER is $1-(1-10^{-6})^{10240} = 99.0\%$
+            \item \pause Example: if bit error rate is $10^{-6}$, packet 10kb, no ECC, then PER is $1-(1-10^{-6})^{10240} = 1.0\%$
         \end{itemize}
         \item \pause \alert{Bandwidth}: some applications (video streaming) require some amount to be effective, but ``elastic apps'' can use whatever bandwidth they get
         \begin{itemize}
