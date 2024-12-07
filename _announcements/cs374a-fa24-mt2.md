@@ -1,5 +1,5 @@
 ---
-title: CS374A - Review Materials Posted
+title: CS374A MT2 - Review Materials Posted
 date: 2024-11-10
 ---
 Best of luck! :)
