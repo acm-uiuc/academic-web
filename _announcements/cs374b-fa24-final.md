@@ -1,6 +1,6 @@
 ---
 title: CS374B Final - Review Materials Posted
-date: 2024-12-01
+date: 2024-12-12
 ---
 Best of luck! :)
 
