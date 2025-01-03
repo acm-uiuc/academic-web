@@ -1,5 +1,5 @@
 ---
-title: [EXTERNAL] IGL Research Development Oppurtunities
+title: (External) IGL Research Development Oppurtunities
 date: 2025-01-02
 ---
 
