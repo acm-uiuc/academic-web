@@ -1,0 +1,64 @@
+name: Jekyll Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  pull_request_target:
+    types: [closed]
+
+jobs:
+  build-and-deploy:
+    if: github.event.action != 'closed'
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Ruby
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+          bundler-cache: true
+
+      # Step 3: Install dependencies
+      - name: Install Jekyll dependencies
+        run: bundle install
+
+      # Step 4: Build the Jekyll site
+      - name: Build the site
+        run: bundle exec jekyll build --destination _site
+
+      # Step 5: Deploy to GitHub Pages (preview branch)
+      - name: Deploy to GitHub Pages (preview branch)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _site
+          publish_branch: preview-${{ github.event.pull_request.number }}
+
+      # Step 6: Post preview link as a comment
+      - name: Post preview link
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: |
+            🌐 **Preview Site**: [Preview here](https://acm-uiuc.github.io/academic-web/preview-${{ github.event.pull_request.number }})
+          header: Preview Link
+
+  cleanup:
+    if: github.event.action == 'closed'
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Delete the preview branch
+      - name: Delete preview branch
+        run: |
+          git push origin --delete preview-${{ github.event.pull_request.number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
