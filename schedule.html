@@ -1,0 +1,27 @@
+---
+layout: default
+title: Schedule
+---
+<div class="container mx-auto px-6 py-12">
+    <h1 class="text-4xl font-bold mb-8">Event Schedule</h1>
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-white rounded-lg overflow-hidden">
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="px-6 py-3 text-left text-gray-700">Event Name</th>
+                    <th class="px-6 py-3 text-left text-gray-700">Date/Time</th>
+                    <th class="px-6 py-3 text-left text-gray-700">Location</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                {% for event in site.data.events %}
+                    <tr>
+                        <td class="px-6 py-4">{{ event.name }}</td>
+                        <td class="px-6 py-4">{{ event.date | date: "%B %d, %Y %I:%M %p" }}</td>
+                        <td class="px-6 py-4">{{ event.location }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

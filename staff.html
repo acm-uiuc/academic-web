@@ -1,0 +1,50 @@
+---
+layout: default
+title: Staff
+---
+<div class="container mx-auto min-h-screen px-6 py-12">
+    <h1 class="text-4xl font-bold mb-12">Staff</h1>
+    
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8">Chairs</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            {% for member in site.data.staff %}
+                {% if member.role == "chair" %}
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="{{ member.photo | default: '/assets/images/avatar.jpg'}}" 
+                            alt="{{ member.name }}" 
+                            class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">{{ member.name }}</h3>
+                            {% if member.email %}
+                                <p class="text-gray-600">Email: {{ member.email}}</p>
+                            {% endif %}
+                            {% if member.classes %}
+                                <p class="text-gray-600">Classes: {{ member.classes | join: ", " }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    
+    <section>
+        <h2 class="text-3xl font-bold mb-8">Course Assistants</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            {% for member in site.data.staff %}
+                {% if member.role == "ca" %}
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="{{ member.photo | default: '/assets/images/avatar.jpg'}}" 
+                             alt="{{ member.name }}" 
+                             class="w-full h-64 object-cover aspect-video">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">{{ member.name }}</h3>
+                            <p class="text-gray-600">{{ member.classes | join: ", " }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+</div>
