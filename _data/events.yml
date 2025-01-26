@@ -11,3 +11,15 @@
 #     other4: /slides/whatever.pdf
 #     other5: /slides/whatever.pdf
 #     other6: /slides/whatever.pdf
+
+- name: CS374A MT1 Review (Tentative)
+  date: 2025-2-22
+  location: Siebel 1404
+
+- name: CS374A MT2 Review (Tentative)
+  date: 2025-4-12
+  location: Siebel 1404
+
+- name: CS374 Final Review
+  date: 2025-5-4
+  location: Siebel 1404

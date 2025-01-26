@@ -11,30 +11,14 @@
 - name: Jake Levine
   role: chair
   email: jlevine4@illinois.edu
+  classes:
+    - CS 374
+    - CS 438
 
-- name: Jane Smith
+- name: Ryan To
   role: ca
+  email: rto4@illinois.edu
+  photo: /assets/images/avatars/ryan-to.jpg
   classes:
     - CS 128
-    - CS 225
-
-- name: Jane Smith
-  role: ca
-  classes:
-    - CS 128
-    - CS 225
-- name: Jane Smith
-  role: ca
-  classes:
-    - CS 128
-    - CS 225
-- name: Jane Smith
-  role: ca
-  classes:
-    - CS 128
-    - CS 225
-- name: Jane Smith
-  role: ca
-  classes:
-    - CS 128
-    - CS 225
+    - CS 374
