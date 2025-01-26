@@ -30,3 +30,11 @@
   role: ca
   classes:
     - CS 374
+
+- name: Dev Singh
+  role: ca
+  email: dsingh14@illinois.edu
+  photo: /assets/images/avatars/dev-singh.jpg
+  classes:
+    - CS 341
+    - CS 357
