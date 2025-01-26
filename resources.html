@@ -6,13 +6,13 @@ title: Resources
     <h1 class="text-4xl font-bold mb-8 dark:text-white">Resources</h1>
     <div class="overflow-x-auto">
         <table class="min-w-full bg-white dark:bg-gray-800 rounded-lg overflow-hidden">
-            <thead class="bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
+            <thead class="text-lg bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
                 <tr>
                     <th class="px-6 py-3 text-left text-gray-700 dark:text-gray-200 w-1/2">Event Name</th>
                     <th class="px-6 py-3 text-center text-gray-700 dark:text-gray-200 w-1/2">Resources</th>
                 </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200 dark:divide-gray-600">
+            <tbody class="divide-y divide-gray-100 dark:divide-gray-600">
                 {% for event in site.data.events %}
                     {% if event.resources %}
                         <tr class="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-150">
