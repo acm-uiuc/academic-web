@@ -13,8 +13,10 @@
   email: jlevine4@illinois.edu
   photo: /assets/images/avatars/jake-levine.jpg
   classes:
+    - CS 357
     - CS 374
     - CS 438
+    - CS 473
 
 - name: Ryan To
   role: ca
