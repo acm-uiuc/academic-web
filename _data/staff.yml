@@ -25,3 +25,8 @@
   classes:
     - CS 128
     - CS 374
+
+- name: Sasha Levinshteyn
+  role: ca
+  classes:
+    - CS 374
