@@ -48,12 +48,6 @@ title: Home
                             <td class="px-6 py-4">{{ event.date | date: "%B %d, %Y %I:%M %p" }}</td>
                             <td class="px-6 py-4">{{ event.location }}</td>
                         </tr>
-                    {% else %}
-                        <tr>
-                            <td class="px-6 py-4">Skipped: {{ event.name }} {{event_date }}</td>
-                            <td class="px-6 py-4">{{ event.date | date: "%B %d, %Y %I:%M %p" }}</td>
-                            <td class="px-6 py-4">{{ event.location }}</td>
-                        </tr>
                     {% endif %}
                 {% endfor %}
             </tbody>
