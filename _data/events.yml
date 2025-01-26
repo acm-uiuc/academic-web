@@ -1,0 +1,25 @@
+# - name: Example Event 1
+#   date: 2025-01-25 14:00:00
+#   location: Siebel 1404
+#   resources:
+#     empty_slides: /slides/event1-empty.pdf
+#     filled_slides: /slides/event1-filled.pdf
+#     recording: /recordings/event1.mp4
+#     other1: /slides/whatever.pdf
+#     other2: /slides/whatever.pdf
+#     other3: /slides/whatever.pdf
+#     other4: /slides/whatever.pdf
+#     other5: /slides/whatever.pdf
+#     other6: /slides/whatever.pdf
+
+- name: CS374A MT1 Review (Tentative)
+  date: 2025-2-22 12:00 PM
+  location: Siebel 1404
+
+- name: CS374A MT2 Review (Tentative)
+  date: 2025-4-12 12:00 PM
+  location: Siebel 1404
+
+- name: CS374 Final Review
+  date: 2025-5-4 12:00 PM
+  location: Siebel 1404

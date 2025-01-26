@@ -1,0 +1,59 @@
+---
+layout: default
+title: Home
+---
+<div class="relative h-96 overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="/assets/images/hero-background.jpg" alt="Background" class="w-full h-full object-cover filter blur-sm brightness-50">
+    </div>
+    <div class="relative z-10 flex items-center justify-center h-full">
+        <h1 class="p-3 text-4xl sm:text-5xl font-bold text-white text-center">
+            Welcome to ACM's Academic Committee Website!
+        </h1>
+    </div>
+</div>
+
+
+<!-- Announcements Section -->
+<section class="container mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold mb-8 dark:text-white transition-colors duration-200">Announcements</h2>
+    <div class="max-h-96 overflow-y-auto pr-2 space-y-6">
+        {% for announcement in site.data.announcements %}
+            <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md border-2 border-blue-500 dark:border-blue-900 transition-colors duration-200 dark:hover:bg-gray-800 hover:bg-gray-100">
+                <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{{ announcement.title }}</h3>
+                <p class="text-lg text-gray-600 dark:text-gray-100">{{ announcement.content }}</p>
+                <p class="text-sm text-gray-500 dark:text-gray-300 mt-2">{{ announcement.date | date: "%B %d, %Y" }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Events Section -->
+<section class="container mx-auto px-6 py-12 transition-colors duration-200">
+    <h2 class="text-3xl font-bold mb-8 dark:text-white">Upcoming Events</h2>
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+            <thead class="text-lg bg-gray-100 dark:bg-gray-900 transition-colors duration-200 text-gray-700 dark:text-gray-100">
+                <tr>
+                    <th class="px-3 sm:px-6 py-3 text-left">Event Name</th>
+                    <th class="px-3 sm:px-6 py-3 text-left">Date/Time</th>
+                    <th class="px-3 sm:px-6 py-3 text-left">Location</th>
+                </tr>
+            </thead>
+            {% assign today_date = "now" | date: "%Y-%m-%d" %}
+            {% assign month_from_now = "now" | date: "%s" | plus: 2592000 | date: "%Y-%m-%d" %}
+            <tbody class="divide-y divide-gray-200 dark:divide-gray-600">
+                {% for event in site.data.events %}
+                    {% assign event_date = event.date | date: "%Y-%m-%d" %}
+                    {% if event_date >= today_date and event_date <= month_from_now %}
+                        <tr class="text-sm sm:text-base text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-600 bg-white dark:bg-gray-700 transition-colors duration-150">
+                            <td class="px-3 sm:px-6 py-4">{{ event.name }}</td>
+                            <td class="px-3 sm:px-6 py-4">{{ event.date | date: "%B %d, %Y %I:%M %p" }}</td>
+                            <td class="px-3 sm:px-6 py-4">{{ event.location }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
