@@ -14,12 +14,22 @@
 
 - name: CS374A MT1 Review (Tentative)
   date: 2025-2-22 12:00 PM
+  start_time: 12:00 PM
+  end_time: 4:00 PM
+  location: Siebel 1404
+
+- name: CS438 MT1 Review (Tentative)
+  date: 2025-3-9
   location: Siebel 1404
 
 - name: CS374A MT2 Review (Tentative)
   date: 2025-4-12 12:00 PM
+  start_time: 12:00 PM
+  end_time: 4:00 PM
   location: Siebel 1404
 
 - name: CS374 Final Review
-  date: 2025-5-4 12:00 PM
+  date: 2025-5-4
+  start_time: 12:00 PM
+  end_time: 4:00 PM
   location: Siebel 1404
