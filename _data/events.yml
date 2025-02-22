@@ -19,7 +19,7 @@
   location: ECEB 3013/3015 
   resources:
     empty_slides: /assets/resources/cs374a/sp25/mt1/slides.pdf
-    scribbles: /assets/resources/cs374a/sp25/mt1/scribbles.pdf
+    filled_slides: /assets/resources/cs374a/sp25/mt1/scribbles.pdf
     
 - name: CS438 MT1 Review (Tentative)
   date: 2025-3-9
