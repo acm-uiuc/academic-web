@@ -20,6 +20,7 @@
   resources:
     empty_slides: /assets/resources/cs374a/sp25/mt1/slides.pdf
     filled_slides: /assets/resources/cs374a/sp25/mt1/scribbles.pdf
+    recording: https://illinois.zoom.us/rec/share/l76G1qIbw-KScZnN-gWegSq2xlEu6EsYtexx1WHGE3XtPLZa2STNCj6ZE18IgWMm.wY5Xo6ie7xry5tQz
     
 - name: CS438 MT1 Review (Tentative)
   date: 2025-3-9
