@@ -18,10 +18,10 @@
   end_time: 4:00 PM
   location: ECEB 3013/3015 
   resources:
-    empty_slides: /assets/resources/cs374a/sp25/mt1/mt1slides.pdf
-    filled_slides: /assets/resources/cs374a/sp25/mt1/mt1scribbles.pdf
-    recording: https://illinois.zoom.us/rec/play/_ZR2HzKBVZlsMwoH8QKKGHewDRY5n8vw4t6MNJgbPvqdeew8Z6SkcG-v2zjQMxrWZv-ccNL19D3-XvIt.WoKa6ulxb0mkZZM3?accessLevel=meeting&canPlayFromShare=true&from=share_recording_detail&continueMode=true&componentName=rec-play&originRequestUrl=https%3A%2F%2Fillinois.zoom.us%2Frec%2Fshare%2Fl76G1qIbw-KScZnN-gWegSq2xlEu6EsYtexx1WHGE3XtPLZa2STNCj6ZE18IgWMm.wY5Xo6ie7xry5tQz
-
+    empty_slides: /assets/resources/cs374a/sp25/mt1/slides.pdf
+    filled_slides: /assets/resources/cs374a/sp25/mt1/scribbles.pdf
+    recording: https://illinois.zoom.us/rec/share/l76G1qIbw-KScZnN-gWegSq2xlEu6EsYtexx1WHGE3XtPLZa2STNCj6ZE18IgWMm.wY5Xo6ie7xry5tQz
+    
 - name: CS438 MT1 Review (Tentative)
   date: 2025-3-9
   location: Siebel 1404
