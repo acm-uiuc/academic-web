@@ -17,7 +17,9 @@
   start_time: 12:00 PM
   end_time: 4:00 PM
   location: ECEB 3013/3015 
-
+  resources:
+    empty_slides: /assets/resources/cs374a/sp25/mt1/slides.pdf
+    
 - name: CS438 MT1 Review (Tentative)
   date: 2025-3-9
   location: Siebel 1404
