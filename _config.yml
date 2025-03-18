@@ -8,6 +8,8 @@ plugins:
 postcss:
   cache: false
 
+core_api_url: https://core.acm.illinois.edu
+
 exclude:
   - package.json
   - postcss.config.js
