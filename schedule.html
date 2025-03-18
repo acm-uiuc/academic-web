@@ -5,8 +5,9 @@ title: Schedule
 <div class="container mx-auto px-6 py-12">
     <h1 class="text-4xl font-bold mb-8 dark:text-white">Event Schedule</h1>
     <div class="overflow-x-auto">
-        <table class="min-w-full bg-white dark:bg-gray-800 rounded-lg overflow-hidden">
-            <thead class="bg-gray-100 dark:bg-gray-900 transition-colors duration-200 text-lg text-gray-700 dark:text-gray-100">
+        <table id="schedule-table" class="min-w-full bg-white dark:bg-gray-800 rounded-lg overflow-hidden">
+            <thead
+                class="bg-gray-100 dark:bg-gray-900 transition-colors duration-200 text-lg text-gray-700 dark:text-gray-100">
                 <tr>
                     <th class="px-6 py-3 text-left">Event Name</th>
                     <th class="px-6 py-3 text-left">Date</th>
@@ -15,37 +16,98 @@ title: Schedule
                     <th class="px-6 py-3 text-left">Location</th>
                 </tr>
             </thead>
-            
-            <tbody class="divide-y divide-gray-200 dark:divide-gray-600">
-                {% for event in site.data.events %}
-                <tr class="text-sm sm:text-base text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-600 bg-white dark:bg-gray-700 transition-colors duration-150">
-                    <td class="px-6 py-4">{{ event.name }}</td>
-                    {% if event.date %}
-                        <td class="px-6 py-4">{{ event.date | date: "%B %d, %Y" }}</td>
-                    {% else %}
-                        <td class="px-6 py-4">TBD</td>
-                    {% endif %}
-                    
-                    {% if event.start_time %}
-                        <td class="px-6 py-4">{{ event.start_time | date: "%I:%M %p" }}</td>
-                    {% else %}
-                        <td class="px-6 py-4">TBD</td>{% endif }
-                    {% endif %}
-                    
-                    {% if event.end_time %}
-                        <td class="px-6 py-4">{{ event.end_time | date: "%I:%M %p" }}</td>
-                    {% else %}
-                        <td class="px-6 py-4">TBD</td>
-                    {% endif %}
-                    
-                    {% if event.location %}
-                        <td class="px-6 py-4">{{ event.location }}</td>
-                    {% else %}
-                        <td class="px-6 py-4">TBD</td>
-                    {% endif %}
+
+            <tbody id="schedule-body" class="divide-y divide-gray-200 dark:divide-gray-600">
+                <tr>
+                    <td colspan="5" class="px-6 py-4 text-center text-gray-500 dark:text-gray-400">Loading events...
+                    </td>
                 </tr>
-                {% endfor %}
             </tbody>
         </table>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        fetchEvents();
+    });
+
+    function fetchEvents() {
+        fetch('{{site.core_api_url}}/api/v1/events?host=Academic%20Committee')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                populateScheduleTable(data);
+            })
+            .catch(error => {
+                console.error('Error fetching events:', error);
+                document.getElementById('schedule-body').innerHTML = `
+                <tr>
+                    <td colspan="5" class="px-6 py-4 text-center text-red-500">
+                        Failed to load events. Please try again later.
+                    </td>
+                </tr>
+            `;
+            });
+    }
+
+    function populateScheduleTable(events) {
+        const scheduleBody = document.getElementById('schedule-body');
+
+        if (events.length === 0) {
+            scheduleBody.innerHTML = `
+            <tr>
+                <td colspan="5" class="px-6 py-4 text-center text-gray-500 dark:text-gray-400">
+                    No upcoming events.
+                </td>
+            </tr>
+        `;
+            return;
+        }
+
+        // Sort events by date
+        events.sort((a, b) => new Date(b.start) - new Date(a.start));
+
+        // Create table rows
+        scheduleBody.innerHTML = events.map(event => {
+            const startDate = new Date(event.start);
+            const endDate = new Date(event.end);
+
+            const formattedDate = startDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            const formattedStartTime = startDate.toLocaleTimeString('en-US', {
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true
+            });
+
+            const formattedEndTime = endDate.toLocaleTimeString('en-US', {
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true
+            });
+
+            return `
+            <tr class="text-sm sm:text-base text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-600 bg-white dark:bg-gray-700 transition-colors duration-150">
+                <td class="px-6 py-4">${event.title || 'TBD'}</td>
+                <td class="px-6 py-4">${formattedDate || 'TBD'}</td>
+                <td class="px-6 py-4">${formattedStartTime || 'TBD'}</td>
+                <td class="px-6 py-4">${formattedEndTime || 'TBD'}</td>
+                <td class="px-6 py-4">
+                    ${event.locationLink
+                    ? `<a href="${event.locationLink}" target="_blank" class="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">${event.location || 'TBD'}</a>`
+                    : event.location || 'TBD'}
+                </td>
+            </tr>
+        `;
+        }).join('');
+    }
+</script>
