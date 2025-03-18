@@ -1,6 +1,5 @@
-# - name: Example Event 1
-#   date: 2025-01-25 14:00:00
-#   location: Siebel 1404
+# - id: UUID from ACM Core Events
+#   name: (optional) if you want to override the ACM Core name, or if you dont have an event in ACM core.
 #   resources:
 #     empty_slides: /slides/event1-empty.pdf
 #     filled_slides: /slides/event1-filled.pdf
@@ -12,28 +11,23 @@
 #     other5: /slides/whatever.pdf
 #     other6: /slides/whatever.pdf
 
-- name: CS374A MT1 Review 
-  date: 2025-2-22 12:00 PM
-  start_time: 12:00 PM
-  end_time: 4:00 PM
-  location: ECEB 3013/3015 
+# CS 374A MT1 Review
+- id: 3e9d1bcc-c382-4568-9689-b7028e82d373
   resources:
     empty_slides: /assets/resources/cs374a/sp25/mt1/slides.pdf
     filled_slides: /assets/resources/cs374a/sp25/mt1/scribbles.pdf
     recording: https://illinois.zoom.us/rec/share/l76G1qIbw-KScZnN-gWegSq2xlEu6EsYtexx1WHGE3XtPLZa2STNCj6ZE18IgWMm.wY5Xo6ie7xry5tQz
-    
-- name: CS438 MT1 Review (Tentative)
-  date: 2025-3-9
-  location: Siebel 1404
 
-- name: CS374A MT2 Review (Tentative)
-  date: 2025-4-12 12:00 PM
-  start_time: 12:00 PM
-  end_time: 4:00 PM
-  location: Siebel 1404
+# CS 374A MT2 Review
+- id: 38ef8d0d-98c6-42c7-a959-f1da7f5f7abb
+  resources:
+    empty_slides: /assets/resources/cs374a/sp25/mt1/slides.pdf
+    filled_slides: /assets/resources/cs374a/sp25/mt1/scribbles.pdf
+    recording: https://illinois.zoom.us/rec/share/l76G1qIbw-KScZnN-gWegSq2xlEu6EsYtexx1WHGE3XtPLZa2STNCj6ZE18IgWMm.wY5Xo6ie7xry5tQz
 
-- name: CS374 Final Review
-  date: 2025-5-4
-  start_time: 12:00 PM
-  end_time: 4:00 PM
-  location: Siebel 1404
+# CS 374A Final Review
+- id: 1e5a79b2-9ae4-4b19-b84a-b30c2da1934c
+  resources:
+    empty_slides: /assets/resources/cs374a/sp25/mt1/slides.pdf
+    filled_slides: /assets/resources/cs374a/sp25/mt1/scribbles.pdf
+    recording: https://illinois.zoom.us/rec/share/l76G1qIbw-KScZnN-gWegSq2xlEu6EsYtexx1WHGE3XtPLZa2STNCj6ZE18IgWMm.wY5Xo6ie7xry5tQz
