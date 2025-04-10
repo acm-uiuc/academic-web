@@ -960,6 +960,11 @@ video {
   font-weight: 600;
 }
 
+.text-blue-100 {
+  --tw-text-opacity: 1;
+  color: rgb(219 234 254 / var(--tw-text-opacity, 1));
+}
+
 .text-blue-500 {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity, 1));
@@ -1043,7 +1048,7 @@ video {
 .transition-colors {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 50ms;
+  transition-duration: 150ms;
 }
 
 .transition-transform {
@@ -1052,12 +1057,10 @@ video {
   transition-duration: 150ms;
 }
 
-. {
-  transition-duration: 150ms;
-}
-
-. {
-  transition-duration: 200ms;
+.announcement-content a {
+  --tw-text-opacity: 1;
+  color: rgb(96 165 250 / var(--tw-text-opacity, 1));
+  text-decoration-line: underline;
 }
 
 .hover\:scale-110:hover {
@@ -1112,6 +1115,10 @@ video {
   color: rgb(153 27 27 / var(--tw-text-opacity, 1));
 }
 
+.hover\:underline:hover {
+  text-decoration-line: underline;
+}
+
 .dark\:block:is(.dark *) {
   display: block;
 }
@@ -1143,6 +1150,11 @@ video {
 .dark\:bg-gray-900:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity, 1));
+}
+
+.dark\:text-blue-100:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(219 234 254 / var(--tw-text-opacity, 1));
 }
 
 .dark\:text-blue-400:is(.dark *) {
