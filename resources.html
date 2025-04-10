@@ -6,7 +6,7 @@ title: Resources
     <h1 class="text-4xl font-bold mb-8 dark:text-white">Resources</h1>
     <div class="overflow-x-auto">
         <table class="min-w-full bg-white dark:bg-gray-800 rounded-lg overflow-hidden">
-            <thead class="text-lg bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
+            <thead class="text-lg bg-gray-100 dark:bg-gray-900 transition-colors ">
                 <tr>
                     <th class="px-6 py-3 text-left text-gray-700 dark:text-gray-200 w-1/2">Event Name</th>
                     <th class="px-6 py-3 text-center text-gray-700 dark:text-gray-200 w-1/2">Resources</th>
@@ -120,7 +120,7 @@ title: Resources
         // Create table rows for each event
         resourcesBody.innerHTML = events.map(event => {
             return `
-                <tr class="text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-600 bg-white dark:bg-gray-700 transition-colors duration-150">
+                <tr class="text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-600 bg-white dark:bg-gray-700 transition-colors ">
                     <td class="px-6 py-4 dark:text-gray-200">
                         ${event.calendarLink
                     ? `<a href="${event.calendarLink}" target="_blank" class="hover:underline text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">${event.title}</a>`
@@ -143,10 +143,10 @@ title: Resources
         if (resources.empty_slides) {
             icons.push(`
                 <a href="${resources.empty_slides}" 
-                    class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-150"
+                    class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors "
                     title="Empty Slides">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        class="hover:scale-110 transition-transform duration-150">
+                        class="hover:scale-110 transition-transform ">
                         <path fill="currentColor"
                             d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h4.2q.325-.9 1.088-1.45T12 1t1.713.55T14.8 3H19q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm0-2h14V5H5zm3-2h5q.425 0 .713-.288T14 16t-.288-.712T13 15H8q-.425 0-.712.288T7 16t.288.713T8 17m0-4h8q.425 0 .713-.288T17 12t-.288-.712T16 11H8q-.425 0-.712.288T7 12t.288.713T8 13m0-4h8q.425 0 .713-.288T17 8t-.288-.712T16 7H8q-.425 0-.712.288T7 8t.288.713T8 9m4-4.75q.325 0 .538-.213t.212-.537t-.213-.537T12 2.75t-.537.213t-.213.537t.213.538t.537.212M5 19V5z" />
                     </svg>
@@ -157,10 +157,10 @@ title: Resources
         if (resources.filled_slides) {
             icons.push(`
                 <a href="${resources.filled_slides}"
-                    class="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 transition-colors duration-150"
+                    class="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 transition-colors "
                     title="Filled Slides">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        class="hover:scale-110 transition-transform duration-150">
+                        class="hover:scale-110 transition-transform ">
                         <path fill="currentColor"
                             d="m10.6 13.8l-2.15-2.15q-.275-.275-.7-.275t-.7.275t-.275.7t.275.7L9.9 15.9q.3.3.7.3t.7-.3l5.65-5.65q.275-.275.275-.7t-.275-.7t-.7-.275t-.7.275zM12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22m0-2q3.35 0 5.675-2.325T20 12t-2.325-5.675T12 4T6.325 6.325T4 12t2.325 5.675T12 20m0-8" />
                     </svg>
@@ -171,10 +171,10 @@ title: Resources
         if (resources.recording) {
             icons.push(`
                 <a href="${resources.recording}"
-                    class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 transition-colors duration-150"
+                    class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 transition-colors "
                     title="Recording">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        class="hover:scale-110 transition-transform duration-150">
+                        class="hover:scale-110 transition-transform ">
                         <path fill="currentColor"
                             d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h12q.825 0 1.413.588T18 6v4.5l3.15-3.15q.25-.25.55-.125t.3.475v8.6q0 .35-.3.475t-.55-.125L18 13.5V18q0 .825-.587 1.413T16 20z" />
                     </svg>
