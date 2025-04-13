@@ -22,6 +22,8 @@
 - id: 38ef8d0d-98c6-42c7-a959-f1da7f5f7abb
   resources:
     empty_slides: /assets/resources/cs374a/sp25/mt2/slides.pdf
+    filled_slides: /assets/resources/cs374a/sp25/mt2/scribbles.pdf
+    recording: https://illinois.zoom.us/rec/share/ZiKik9u9rpfBcEP4iF8VlQXs5IDM5eAgXIIaXdNf5DczfOqFKtHaijx3kygefI26.wowxoyCnBgFj1hlR
 
 # CS 374A Final Review
 - id: 1e5a79b2-9ae4-4b19-b84a-b30c2da1934c
