@@ -34,6 +34,9 @@ title: Resources
             if (!response.ok) throw new Error('Failed to fetch events');
 
             const allEvents = await response.json();
+            allEvents.sort((b, a) => new Date(a.start) - new Date(b.start));
+            console.log(allEvents)
+
 
             // Filter only events with resources in metadata
             const eventsWithResources = allEvents.filter(event => {
@@ -58,6 +61,8 @@ title: Resources
                     }
                 };
             });
+
+
 
             renderResourcesTable(eventsWithResources);
         } catch (error) {

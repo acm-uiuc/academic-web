@@ -99,10 +99,7 @@ title: Home
         }
 
         // Sort events by date
-        console.log(events)
-
         events.sort((a, b) => new Date(a.start) - new Date(b.start));
-        console.log(events)
 
         // Create table rows
         eventsBody.innerHTML = events.map(event => {
