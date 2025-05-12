@@ -1,0 +1,73 @@
+\documentclass{beamer}
+\usepackage{tikz}
+\usepackage{pifont}
+\usepackage{forest}
+\usepackage{pgffor}
+\usetikzlibrary{shapes}
+\usefonttheme{serif}
+
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\blank}{\underbar{\hphantom{aaaaaaaa}}}
+
+\newcommand{\xbeginlgox}{\begin{minipage}{1in}\begin{tabbing}
+  \quad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\kill}
+\newcommand{\xendlgox}{\end{tabbing}\end{minipage}}
+\newenvironment{algorithm}{\begin{tabular}{|l|}\hline\xbeginlgox}
+  {\xendlgox\\\hline\end{tabular}}
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{Logic Review}
+  Basic terms:
+  \begin{itemize}[<+->]
+    \item Symbols: $\lnot$ (not), $\land$ (and), $\lor$ (or), $\to$ (implies)
+    \begin{itemize}
+    \item $p \to q$ -- False only if $p$ True and $q$ False, True otherwise
+    \end{itemize}
+    \item \textcolor{blue}{\textbf{contrapositive}}: $p \to q \iff \lnot q \to \lnot p$
+    \item \textcolor{blue}{\textbf{negation}}: distribute logical $\lnot$ over the expression
+    \item \textcolor{blue}{\textbf{DeMorgan's Law}}: $\lnot (p \land q) = \lnot p \lor \lnot q$, \\  $\lnot (p \lor q) = \lnot p \land \lnot q$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example 1}
+  For which values of $p$, $q$, and $r$ is the following expression true? Give a succinct description (not the full truth table):\\[1ex]
+  \hspace{2em} $(\lnot q \lor r) \land (p \to q) \land (\lnot r \lor \lnot p)$
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example 2}
+  Show that the following two expressions are not logically equivalent:\\[1ex]
+  \hspace{2em} $(q \to r) \lor p$\\
+  \hspace{2em} $q \to (r \lor p)$
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example 3}
+  What is the contrapositive of the statement: “If it rains, then the ground gets wet”?
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example 4}
+  Negate the statement: “If I study and sleep well, then I will pass the exam.”
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example 5}
+  Use DeMorgan's Law to simplify: $\lnot (p \lor \lnot q)$
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example 6}
+  Which of the following are logically equivalent?\\
+  \quad A. $\lnot (p \land q)$\\
+  \quad B. $\lnot p \lor \lnot q$\\
+  \quad C. $\lnot p \land \lnot q$
+\end{frame}
+
+\end{document}

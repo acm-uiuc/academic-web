@@ -1,0 +1,243 @@
+\documentclass{beamer}
+\usepackage{tikz}
+\usepackage{pifont}
+\usepackage{forest}
+\usepackage{pgffor}
+% \usepackage{algorithm}
+\usetikzlibrary{shapes}
+% \usetheme{Madrid}
+\usefonttheme{serif}
+
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\blank}{\underbar{\hphantom{aaaaaaaa}}}
+
+\newcommand{\xbeginlgox}{\begin{minipage}{1in}\begin{tabbing}
+  \quad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\kill}
+\newcommand{\xendlgox}{\end{tabbing}\end{minipage}}
+\newenvironment{algorithm}{\begin{tabular}{|l|}\hline\xbeginlgox}
+  {\xendlgox\\\hline\end{tabular}}
+% \usepackage{beamer}
+\begin{document}
+
+\begin{frame}
+  \frametitle{Recurrences: Review}
+  \begin{itemize}[<+->]
+    \item We can specify functions with a recursive formula:
+    \begin{equation*}
+      T(n) = \begin{cases}
+        c & n \leq B \\
+        \langle \text{Formula with smaller arguments to $T$} \rangle & n > B
+      \end{cases}
+    \end{equation*}
+    \item Some examples:
+    
+    \begin{tabular}{ c | c }
+      Recurrence & Closed Formula \\\hline
+      $T(n) = \begin{cases}
+        1 & n \leq 1 \\
+        2T(n - 1)\hphantom{+ 1} & n > 1
+      \end{cases}$ & $T(n) = 2^n$ \\\hline 
+      $T(n) = \begin{cases}
+        1 & n \leq 1 \\
+        2T(n/2) + 1 & n > 1
+      \end{cases}$ & $T(n) = 2n - 1$ \\ \hline
+      $T(n) = \begin{cases}
+        0 & n \leq 1 \\
+        2T(n/2) + n & n > 1
+      \end{cases}$ & $T(n) = n\log(n)$ \\    
+     \end{tabular}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Solving A Recurrence}
+  The general strategy for solving a recurrence is a \textcolor{blue}{recurrence tree}.
+  \begin{itemize}[<+->]
+    \item Each node has a value equal to the \alert{nonrecursive} work done.
+    \item Each node has a child for every recursive call it makes.
+  \end{itemize}
+  \pause
+  Example: $T(n) = \begin{cases}
+        0 & n \leq 1 \\
+        \underbrace{2T(n/2)}_{\text{recursive}} + \underbrace{n}_{\text{nonrecursive}} & n > 1
+      \end{cases}$
+  
+  % SPEEDING UP COMPILATIONS...
+  \begin{forest}
+      [$T(n)$
+        [$T(n/2)$
+          [$T(n/4)$
+            [$T(1)$, edge=dotted]
+            [\dots, edge=dotted]
+          ]
+          [$T(n/4)$
+            [\dots, edge=dotted]
+            [\dots, edge=dotted]
+          ]
+        ]
+        [$T(n/2)$
+          [$T(n/4)$
+            [\dots, edge=dotted]
+            [\dots, edge=dotted]
+          ]
+          [$T(n/4)$
+            [\dots, edge=dotted]
+            [$T(1)$, edge=dotted]
+          ]
+        ]
+      ]
+  \end{forest}\begin{forest}
+    [$n$
+      [{$2(n/2) = n$}, no edge
+        [{$4(n/4) = n$}, no edge
+        [{$n(1) = n$}, no edge]
+        ]
+      ]
+    ]
+  \end{forest}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solving A Recurrence}
+  \begin{enumerate}[<+->]
+    \item At level $k$...
+    \begin{itemize}[<+->]
+      \item How many nodes are there?
+      \item What is the input? 
+      \item How much work is done by each node?
+      \item What is the total nonrecursive work? ($W(k)$)
+    \end{itemize}
+    \item What is the height of the tree (i.e. at what level $h$ do we reach the base case input)?
+    \item What is the work done by the leaf nodes? $L = [\text{\# of leaf nodes}] \times [\text{work done by each}]$
+    \item The total work is $\underbrace{\sum\limits_{k = 0}^{h - 1} W(k)}_{\text{internal work}} + \underbrace{L}_{\text{leaf work}}$
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Recurrence Practice I}
+  \begin{equation*}
+    T(n) = \begin{cases}
+    c & n \leq 1 \\
+    3T(n/2) + n & n > 1
+    \end{cases}
+  \end{equation*}
+  What is $T(n)$ for $n$ a power of 2?
+  \pause
+  \begin{enumerate}
+    \item At level $k$...
+    \begin{itemize}
+      \item There are \blank nodes.
+      \item The input is \blank.
+      \item Each node does \blank work.
+      \item The total nonrecursive work $W(k)=$ \blank
+    \end{itemize}
+    \item $h =$ \blank
+    \item What is the work done by the leaf nodes? $L = [\text{\# of leaf nodes}] \times [\text{work done by each}] = $ \blank
+    \item $\underbrace{\sum\limits_{k = 0}^{h - 1} W(k)}_{\text{internal work}} + \underbrace{L}_{\text{leaf work}} = $ \blank
+  \end{enumerate}
+
+  \pause
+  Answer: $T(n) = (c + 2)n^{\log_2 3} - 2n$
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Recurrence Practice II}
+  \begin{equation*}
+    T(n) = \begin{cases}
+    c & n \leq 2 \\
+    2T(n - 1) + d & n > 2
+    \end{cases}
+  \end{equation*}
+  What is $T(n)$ for $n \geq 2$?
+
+  \pause 
+
+  \vspace{5cm}
+
+  Answer: $T(n) = (c + d)2^{n - 2} - d$
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Recurrence Practice III}
+  \begin{equation*}
+    T(n) = \begin{cases}
+    c & n \leq 1 \\
+    T(n/2) + n^2 & n > 1
+    \end{cases}
+  \end{equation*}
+  What is $T(n)$ for $n$ a power of 2?
+  \pause
+  \vspace{5cm}
+
+
+  Answer: $T(n) = \frac43(n^2 - 1) + c$
+\end{frame}
+
+\begin{frame}
+  \frametitle{What about $\Theta$?}
+  \begin{itemize}[<+->]
+    \item If all we care about if what $T$ is $\Theta$ of, the specific constants don't matter.
+    \item In the previous slide, $T(n) = \frac43(n^2 - 1) + c$ is always $\Theta(n^2)$, no matter what $c$ is.
+    \item Similar for $T(n) = (c + d)2^{n - 2} - d$ is $\Theta(2^n)$ and $T(n) = (c + 2)n^{\log_2 3} - 2n$ is $\Theta(n^{\log_2 3})$.
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Recurrence Practice V}
+  What is the Big-Theta running time of \textsc{Shake}?
+
+  \begin{algorithm}
+  \textsc{Shake}($A[1..n]$)\+
+  \\ if $n \leq 1$:\+
+  \\   return $A$\-
+  \\ $m \gets \lfloor n / 2 \rfloor$
+  \\ $A_1 \gets \textsc{Shake}(A[1..m])$
+  \\ $A_2 \gets \textsc{Shake}(A[m+1..n])$
+  \\ $B \gets []$
+  \\ for $i$ in $1..m$:\+
+  \\   $B$.add($A_1[i]$)
+  \\   $B$.add($A_2[i]$)\-
+  \\ return $B$
+  \end{algorithm}
+
+  \vfill
+  \vfill
+  \vfill
+
+  \pause
+
+  Answer: $\Theta(n\log n)$
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Recurrence Practice VI: HARD}
+  \begin{equation*}
+    T(n) = \begin{cases}
+    c & n \leq 1 \\
+    T(n/2) + T(n/3) + T(n/6) + n & n > 1
+    \end{cases}
+  \end{equation*}
+  What is $T(n)$ Big-Theta of?
+  \vfill
+  \vfill
+  \vfill
+  \vfill
+
+  \pause
+
+  Answer: $\Theta(n\log n)$
+\end{frame}
+
+\begin{frame}
+  \frametitle{Questions/Examples}
+  \pause
+  \pause
+  \pause
+\end{frame}
+
+\end{document}

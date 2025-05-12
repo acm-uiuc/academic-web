@@ -1,0 +1,86 @@
+\documentclass{beamer}
+\usepackage{tikz}
+\usepackage{pifont}
+\usepackage{forest}
+\usepackage{pgffor}
+% \usepackage{algorithm}
+\usetikzlibrary{shapes}
+% \usetheme{Madrid}
+\usefonttheme{serif}
+
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\blank}{\underbar{\hphantom{aaaaaaaa}}}
+
+\newcommand{\xbeginlgox}{\begin{minipage}{1in}\begin{tabbing}
+  \quad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\kill}
+\newcommand{\xendlgox}{\end{tabbing}\end{minipage}}
+\newenvironment{algorithm}{\begin{tabular}{|l|}\hline\xbeginlgox}
+  {\xendlgox\\\hline\end{tabular}}
+
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{Functions: Review}
+  \begin{itemize}[<+->]
+    \item Functions map between sets. Given an input, it gives exactly one output (duh).
+    \item Functions are defined \textit{both} by what they do to the inupt and their (co)domain.
+    \item $f: \mathbb{R} \to \mathbb{R}, f(x) = x^2$ and $g: \mathbb{R} \to [0, \infty), g(x) = x^2$ are \emph{different} functions (only one is onto), even though they have the same formula.
+    \item Can be specified with a precise English description, a formula (if working with numbers), or by defining each input/output pair individually. 
+    \item These are all the same function:
+    \begin{itemize}
+      \setlength\itemsep{1em}
+      \item \makebox[3cm]{$f: \{2, 3, 4\} \to \mathbb{N}$ \hfill} $f(n)$ returns the $n^\text{th}$ prime number
+      \item \makebox[3cm]{$f: \mathbb{N} \cap [2, 4] \to \mathbb{N}$\hfill} $f(2) = 3, f(3) = 5, f(4) = 7$
+      \item \makebox[3cm]{$f: \{2, 3, 4\} \to \mathbb{N}$\hfill} $f(x) = 2x - 1$
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Onto, One-to-one and Bijective}
+  \begin{itemize}[<+->]
+    \item A function $f: A \to B$ is \textcolor{blue}{onto} if for every $b \in B$, there is some $a \in A$ where $f(a) = b$.
+    \item A function $f: A \to B$ is \textcolor{blue}{one-to-one} if $f(x) = f(y)$ implies $x = y$ for all $x, y \in A$.
+    \item A nice way to think about it: onto means every $b \in B$ has at \textit{least} one preimage; one-to-one means every $b \in B$ has at \textit{most} one preimage.
+    \item So $f$ being \textcolor{blue}{bijective} (onto and one-to-one) means every $b \in B$ has \textit{exactly} one preimage.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Practice Questions I}
+  Which of these functions are onto, one-to-one, or both?
+  \def\arraystretch{2}
+  \begin{tabular}{|c|c|c|c|}
+    \hline Signature & $f(x)$ & \makebox[2.5cm]{Onto?} & \makebox[2.5cm]{One-to-one?} \\\hline
+    $\mathbb{R} \to \mathbb{R}$ & $x^2$ & & \\\hline
+    $[0, \infty) \to [0, \infty)$ & $x^2$ &  & \\\hline
+    $\mathbb{N} \to \mathbb{Z}$ & $(-1)^xx$ &  & \\\hline
+    $\{2, 5, 6\} \to \{3, 6, 7, 8\}$ & $x + 1$ &  & \\\hline
+    $\mathbb{N} \cup \{-1\} \to \mathbb{N}$ & $2x + 1$ &  & \\\hline
+    
+  \end{tabular}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Practice Questions II}
+  \begin{enumerate}[<+->]
+    \item Let $g:\mathbb{N}\to\mathbb{N}$ be onto, and define $f: \mathbb{N}^2 \to \mathbb{Z}$ by $f(n, m) = (m - 1)g(n)$. Prove $f$ is onto.
+    \item (SU24 Review) Let $f: \mathbb{Z}^+ \times \mathbb{Z}^+ \to \mathbb{Q}^2, f(x, y) = (\frac xy, x + y)$. Show that $f$ is one-to-one.
+    \item Suppose we have finite sets $A$ and $B$ with $|A| = |B| = n \in \mathbb{N}$. Show that if $f: A \to B$ is one-to-one, then $f$ is onto. How many such functions are there, for fixed $A$ and $B$?
+    \item Suppose $A \subseteq \mathbb{R}$ and $f: A \to A, f(x) = \sqrt{2}x$. For what sets $A$ is $f$ a bijection?
+    \item Suppose that $f \circ g$ is one-to-one. Does $f$ have to be one-to-one? Does $g$?
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Questions/Examples}
+  \pause
+  \pause
+  \pause
+\end{frame}
+
+\end{document}
