@@ -1,0 +1,144 @@
+\documentclass{beamer}
+\usepackage{tikz}
+\usepackage{pifont}
+\usetikzlibrary{shapes}
+% \usetheme{Madrid}
+\usefonttheme{serif}
+
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+
+\newcommand{\xmark}{\ding{55}}%
+
+% \usepackage{beamer}
+\begin{document}
+\begin{frame}
+  \frametitle{Review: Sets}
+    \begin{itemize}
+      \item A \textcolor{blue}{set} is a collection of objects without ordering or duplicates. \pause
+      \item The {\bf only} thing you can do with a set is see what's in it! \pause
+      \begin{itemize}
+        \item $A = \{2, 4, 3, 5, 1\}$ \pause
+        \item Is 2 in the set $A$? \pause \checkmark \pause
+        \item Is 0 in the set $A$? \pause \xmark \pause
+        \item What is the first element of $A$? \pause \textcolor{red}{Invalid question!} \pause
+      \end{itemize}
+      
+      \item 3 standard ways to define sets: \pause
+      \begin{enumerate}
+        \item \textit{Precisely} describe what they contain in English: Let $S$ denote the set of all positive even integers. \pause
+        \item List out their elements (with ellipses if necesary and clear): $S = \{2, 4, 6, ...\}$. \pause
+        \item Set builder notation: $S = \{2k \mid \underbrace{k \in \mathbb{Z}, k > 0}_{\text{Condition}}\}$ \pause
+      \end{enumerate}
+
+      \item Special notation: $\emptyset = \{\}$, the empty set.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Review: Sets}
+
+  \begin{itemize}[<+->]
+    \item ($A \subseteq B$) $A$ is a subset of $B$: $\forall a \in A, a \in B$
+    
+    $\{1, 2, 4\} \subseteq \{1, 2, 3, 4\}$
+    \item Equality: $A = B \Longleftrightarrow A \subseteq B \text{ and } B \subseteq A$
+
+    \item Union: $A \cup B = \{x \mid x \in A \text{ or } x \in B\}$
+    
+    $\{\text{milk, cheese, eggs}\} \cup \{\text{yogurt, milk, carrots}\} = \{\text{milk, yogurt, cheese, eggs, carrots}\}$
+
+    \item Intersection: $A \cap B = \{x \mid x \in A \text{ and } x \in B\}$
+    
+    $\{\text{milk, cheese, eggs}\} \cap \{\text{yogurt, milk, carrots}\} = \{\text{milk}\}$
+
+    \begin{itemize}[<+->]
+      \item What can you say about $A, A \cup B, \text{ and } A \cap B$?
+      \item $A \cap B \subseteq A \subseteq A \cup B$
+    \end{itemize}
+    \item Cardinality: Given a (finite) set $A$, $|A|$ is the number of elements in the set.
+    \item Cartesian Product: $A \times B = \{(a, b) \mid a \in A, b \in B\}$
+    \item Powerset (set of all subsets): $\mathbb{P}(A) = \{S \mid S \subseteq A\}$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Important Points}
+  \begin{itemize}[<+->]
+    \item Sets can contain sets! The set $A = \{1, 2, 3\}$ is distinct from the set $B = \{A\} = \{\{1, 2, 3\}\}$
+    \item Sets need not have the same ``type" of element: $\{1, (3, \text{``no"}), f\}$ is a perfectly valid set.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Practice Problems I}
+
+  \begin{enumerate}[<+->]
+    \item What is $|A|$, where $A = \{1, 2, 4, 1, 5\}$?
+    \item What is $\emptyset \times \{1, 2, 3\}$?
+    \item What is $\{\emptyset\} \times \{1, 2, 3\}$?
+    \item For sets $A$ and $B$, what is $|A \times B|$, in terms of $|A|$ and $|B|$?
+    \item What is $|A \cup B|$?
+    \item What is $|\mathbb{P}(A)|$?
+    \item For any set $A$, what element is \textit{always} in $\mathbb{P}(A)$?
+    \item What is $\mathbb{P}(\{1, 2, 3\})$?
+  \end{enumerate}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Set Proofs}
+    \begin{block}{Proving Inclusion}
+      \fbox{\parbox{0.5\textwidth}{
+      Let $a \in A$.
+      \vspace{0.5cm}
+
+      (logic...)
+      \vspace{0.5cm}
+  
+      Thus, $a \in B$, so $A \subseteq B$.
+      }}
+        
+    \end{block}
+    \vspace{2cm}
+    \pause
+    How would you prove that $A \not \subseteq B$? How about $A \subsetneqq B$?
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Practice Problems II}
+  \begin{enumerate}[<+->]
+    \item Prove that $\{6x \mid x \in \mathbb{N}\} \subseteq \{2y \mid y \in \mathbb{N}\}$
+    \item Prove that $\{p > 2 \mid p \text{ prime}\} \subseteq \{x : 2 \nmid x \in \mathbb{N}\}$
+    \item Prove that $\{x^2 \mid x \in \mathbb{R}\} = \{y \geq 0 \mid y \in \mathbb{R}\}$
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Counting Elements in Sets}
+  \begin{itemize}[<+->]
+    \item Number of ways to order $n$ objects: $n!$
+    \item Number of ways to order $k$ objects from a set of $n$: $\frac{n!}{(n-k)!}$
+    \item (!!!) Number of ways to choose $k$ objects from a collection of $n$: ${n \choose k} = \frac{n!}{k!(n - k)!}$
+    \item Stars and Bars: How many ways to partition $n$ identical elements into $k$ bins: ${k + n - 1 \choose k - 1}$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Practice Problems III}
+  \begin{enumerate}[<+->]
+    \item In a race with $6$ contestants, how many possible top 3 players are there (order matters)?
+    \item How many ways are there to divide $2n$ students into two even groups?
+    \item How many 10-bit binary strings are there with exactly 3 0 bits?
+    \item How many triples of nonnegative numbers $(x, y, z)$ are there such that $x + y + z = 10$?
+    \item Same question but for \textit{positive} numbers.
+    \item (Summer 2024 Review Question) Let $A = \{(a, b) \in \mathbb{R}^2 \mid a = 3 - b^2\}, B = \{(x, y) \in \mathbb{R}^2 \mid |x| \geq 1 \text{ or } |y| \geq 1\}$. Prove that $A \subseteq B$.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Questions/Examples}
+\end{frame}
+
+\end{document}
