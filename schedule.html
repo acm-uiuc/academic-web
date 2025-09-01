@@ -41,7 +41,11 @@ title: Schedule
                 return response.json();
             })
             .then(data => {
-                populateScheduleTable(data);
+                populateScheduleTable(data.filter(event => {
+                    const eventStart = new Date(event.start);
+                    const semesterStart = new Date('{{ site.data.constants.semester_start }}');
+                    return eventStart > semesterStart;
+                }));
             })
             .catch(error => {
                 console.error('Error fetching events:', error);

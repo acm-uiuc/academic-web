@@ -15,7 +15,7 @@ title: Resources
             </thead>
             <tbody id="resources-body" class="divide-y divide-gray-100 dark:divide-gray-600">
                 <tr>
-                    <td colspan="2" class="px-6 py-4 text-center text-gray-500 dark:text-gray-400">Loading resources...
+                    <td colspan="3" class="px-6 py-4 text-center text-gray-500 dark:text-gray-400">Loading resources...
                     </td>
                 </tr>
             </tbody>
@@ -41,7 +41,12 @@ title: Resources
             // Filter only events with resources in metadata
             const eventsWithResources = allEvents.filter(event => {
                 const m = event.metadata || {};
-                return m.empty_slides || m.filled_slides || m.recording;
+                const hasResources = m.empty_slides || m.filled_slides || m.recording;
+                
+                const eventDate = new Date(event.start);
+                // TODO: can we get this programatically
+                const semesterStart = new Date('{{ site.data.constants.semester_start }}')
+                return hasResources && eventDate > semesterStart;
             }).map(event => {
                 const startDate = new Date(event.start);
                 const formattedStartDate = startDate.toLocaleDateString('en-US', {
@@ -62,8 +67,6 @@ title: Resources
                 };
             });
 
-
-
             renderResourcesTable(eventsWithResources);
         } catch (error) {
             console.error('Error loading resources:', error);
@@ -83,7 +86,7 @@ title: Resources
         if (!events || events.length === 0) {
             resourcesBody.innerHTML = `
                 <tr>
-                    <td colspan="2" class="px-6 py-4 text-center text-gray-500 dark:text-gray-400">
+                    <td colspan="3" class="px-6 py-4 text-center text-gray-500 dark:text-gray-400">
                         No resources available.
                     </td>
                 </tr>
