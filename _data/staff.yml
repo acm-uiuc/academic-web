@@ -38,3 +38,12 @@
   classes:
     - CS 341
     - CS 357
+
+- name: Amol Shah
+  role: ca
+  email: amols2@illinois.edu
+  photo: /assets/images/avatars/amol-shah.jpg
+  classes:
+    - CS 374
+    - CS 433
+    - CS 438
