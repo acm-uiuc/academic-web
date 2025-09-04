@@ -33,7 +33,7 @@ title: Schedule
     });
 
     function fetchEvents() {
-        fetch('{{site.core_api_url}}/api/v1/events?host=Academic%20Committee')
+        fetch('{{site.core_api_url}}/api/v1/events?host=Academic%20Committee&includeMetadata=true')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -42,9 +42,9 @@ title: Schedule
             })
             .then(data => {
                 populateScheduleTable(data.filter(event => {
-                    const eventStart = new Date(event.start);
-                    const semesterStart = new Date('{{ site.data.constants.semester_start }}');
-                    return eventStart > semesterStart;
+                  const m = event.metadata || {};
+                  const hasSemesterCode = m.semester_code
+                  return (hasSemesterCode && (m.semester_code == "{{ site.data.constants.semester_code}}"));
                 }));
             })
             .catch(error => {
@@ -99,9 +99,6 @@ title: Schedule
                 hour12: true
             });
 
-            console.log(endDate);
-            console.log(Date());
-            console.log(endDate < Date.now())
             if (endDate < Date.now()) {
                 return `
             <tr class="text-sm sm:text-base text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-600 bg-white dark:bg-gray-700 transition-colors ">

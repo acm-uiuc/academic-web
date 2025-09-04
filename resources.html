@@ -35,18 +35,14 @@ title: Resources
 
             const allEvents = await response.json();
             allEvents.sort((b, a) => new Date(a.start) - new Date(b.start));
-            console.log(allEvents)
 
 
             // Filter only events with resources in metadata
             const eventsWithResources = allEvents.filter(event => {
                 const m = event.metadata || {};
                 const hasResources = m.empty_slides || m.filled_slides || m.recording;
-                
-                const eventDate = new Date(event.start);
-                // TODO: can we get this programatically
-                const semesterStart = new Date('{{ site.data.constants.semester_start }}')
-                return hasResources && eventDate > semesterStart;
+                const hasSemesterCode = m.semester_code;
+	            	return hasResources && hasSemesterCode && (m.semester_code == "{{ site.data.constants.semester_code }}");
             }).map(event => {
                 const startDate = new Date(event.start);
                 const formattedStartDate = startDate.toLocaleDateString('en-US', {
