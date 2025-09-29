@@ -8,6 +8,15 @@
     - CS 374
     - CS 433
 
+- name: Amol Shah
+  role: chair
+  email: amols2@illinois.edu
+  photo: /assets/images/avatars/amol-shah.jpg
+  classes:
+    - CS 374
+    - CS 433
+    - CS 438
+
 - name: Jake Levine
   role: ca
   email: jlevine4@illinois.edu
@@ -28,8 +37,10 @@
 
 - name: Sasha Levinshteyn
   role: ca
+  photo: /assets/images/avatars/sasha-levinshteyn.jpg
   classes:
     - CS 374
+    - CS 473
 
 - name: Dev Singh
   role: ca
@@ -39,11 +50,22 @@
     - CS 341
     - CS 357
 
-- name: Amol Shah
-  role: chair
-  email: amols2@illinois.edu
-  photo: /assets/images/avatars/amol-shah.jpg
+- name: Navid Tajkhorshid
+  role: ca
   classes:
     - CS 374
-    - CS 433
-    - CS 438
+
+- name: Anisha Rao
+  role: ca
+  classes:
+    - CS 374
+
+- name: Pranay Midha
+  role: ca
+  classes:
+    - CS 374
+
+- name: Sarah Dowden  
+  role: ca
+  classes:
+    - CS 374
