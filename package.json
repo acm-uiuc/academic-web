@@ -1,10 +1,10 @@
 {
   "devDependencies": {
-    "autoprefixer": "^10.4.24",
+    "autoprefixer": "^10.5.0",
     "cssnano": "^7.0.6",
-    "postcss": "^8.4.13",
+    "postcss": "^8.5.14",
     "postcss-cli": "^11.0.1",
-    "tailwindcss": "4.1.18"
+    "tailwindcss": "4.3.0"
   },
   "scripts": {
     "build:css": "postcss ./assets/css/main.css -o ./assets/css/styles.css"
